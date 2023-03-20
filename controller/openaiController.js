@@ -14,11 +14,11 @@ const generateImage = async (req, res) => {
   try {
     const response = await openai.createImage({
       prompt,
-      n: 2,
+      n: 1,
       size: imageSize,
     });
 
-    const imageUrl = response.data.data[0].url;
+    const imageUrl = response.data.data[1].url;
 
     res.status(200).json({
       success: true,
@@ -29,12 +29,12 @@ const generateImage = async (req, res) => {
       console.log(error.response.status);
       console.log(error.response.data);
     } else {
-      console.log(error.message);
+      console.log(error.message)
     }
 
     res.status(400).json({
       success: false,
-      error: 'The image could not be generated',
+      error: 'The image could not be generated, please try again later',
     });
   }
 };
