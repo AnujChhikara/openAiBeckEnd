@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/openai', require('./routes/openaiRoutes'))
 app.get('/', (req, res) => {
-    res.send("WOOF!")
+    res.send("hello from backend")
 })
 
 
